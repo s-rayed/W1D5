@@ -1,24 +1,21 @@
-def generate_question
-  @rand_1 = rand(1..10)
-  @rand_2 = rand(1..10)
-  puts "What is #{@rand_1} + #{@rand_2}"
-  @answer = @rand_1 + @rand_2
-end
+class Question
 
-def promp_player_for_answer
+  attr_accessor :rand_1, :rand_2
 
-  @user_answer = gets.chomp.to_i
+  def initialize
+    @rand_1 = rand(1..10)
+    @rand_2 = rand(1..10)
+    @answer = @rand_1 + @rand_2
 
-end
+  end
 
-def verify_answer
+  def output
+    "What is #{@rand_1} + #{@rand_2}"
+  end
 
-  if @answer == @user_answer
-    player.add_point
-  else
-    player.lose_life
+  def verify_answer?(input)
+    input == @answer
   end
 
 end
-
 
